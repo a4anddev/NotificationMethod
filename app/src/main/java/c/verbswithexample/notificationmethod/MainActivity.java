@@ -26,32 +26,8 @@ public class MainActivity extends AppCompatActivity {
     int i =0;
     public void notifybtn(View view) {
 
-
-        Intent intent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
-
-
-        Bitmap bitmap = BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher);
-
-        Notification notification  = new Notification.Builder(this)
-                .setContentTitle("Content title")
-                .setContentText("content Text")
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentIntent(pendingIntent)
-                .setLargeIcon(bitmap)
-                .build();
-
-        NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        notification.flags = Notification.FLAG_AUTO_CANCEL;
-
-        notificationManager.notify(i, notification);
-
-        i++;
-
-
-
-
-
+        NewMessageNotification notification = new NewMessageNotification();
+        notification.notify(this, "it is running ", 1);
 
     }
 }
